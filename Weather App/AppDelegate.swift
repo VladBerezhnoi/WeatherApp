@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  Weather App
+//  Weather
 //
-//  Created by Владислав on 25.09.2022.
+//  Created by Vlad Berezhnoi on 13.05.2022.
 //
 
 import UIKit
@@ -10,10 +10,14 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
+    var window: UIWindow?
+    private let weatherManager = WeatherManager()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        window.rootViewController = ViewController(weatherManager: weatherManager)
+        window.makeKeyAndVisible()
+        self.window = window
         return true
     }
 
